@@ -4,7 +4,7 @@
 
 ## How to use
 
-Add the contents for `snippets.json` to:
+Add the contents of `snippets.json` to:
 
 ```bash
 ~/Library/Application Support/Code/User/snippets/javascript.json
