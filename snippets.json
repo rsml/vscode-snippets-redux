@@ -25,5 +25,29 @@
           "return state",
           "  .set('${1/(set)([A-Z])(.*)/${2:/downcase}$3/}', action.value);"
       ]
+   },
+
+   "whatchanged": {
+      "prefix": "whatchanged",
+      "body": [
+         "componentWillReceiveProps(nextProps) {",
+         "   const changedProps = _.reduce(this.props, (result, value, key) => (_.isEqual(value, nextProps[key])",
+         "     ? result",
+         "     : result.concat(key)), []);",
+         "",
+         "  console.group(`${this.constructor.name} CHANGED PROPS`);",
+         "  changedProps.forEach((changedProp) => {",
+         "    console.group(`${changedProp}`);",
+         "    console.group('OLD');",
+         "    console.log(this.props[changedProp]);",
+         "    console.groupEnd();",
+         "    console.group('NEW');",
+         "    console.log(nextProps[changedProp]);",
+         "    console.groupEnd();",
+         "    console.groupEnd();",
+         "  });",
+         "  console.groupEnd();",
+         "}",
+      ]
    }
 }
